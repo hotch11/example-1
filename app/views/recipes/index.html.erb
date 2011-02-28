@@ -1,0 +1,25 @@
+<h1>Welcome to Railschef Recipes</h1>
+
+<% if flash[:notice] %>
+<p style="color:green;">
+<%= flash[:notice]%>
+</p>
+<% end %>
+
+
+<p><%= link_to "Create a new recipe", new_recipe_path %></p>
+
+
+<table border=7 cellspacing=5 cellpadding=3>
+<tr>
+<td>Title</td>
+<td>Method</td>
+</tr>
+<% for recipe in @recipes do %>
+<tr>
+<td><%=h link_to "#{recipe.title}", recipe %></td>
+<td><%=h recipe.method %></td>
+</tr>
+
+<% end %>
+</table>

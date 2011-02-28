@@ -1,0 +1,85 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (133.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (85.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateMovies (20110131143334)
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "decription" text, "certification" varchar(255), "price" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110131143334')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("movies")[0m
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2011-01-31 14:42:13) [GET]
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Completed in 32ms (View: 29, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing MoviesController#new (for 127.0.0.1 at 2011-01-31 14:43:27) [GET]
+Rendering template within layouts/movies
+Rendering movies/new
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/movies/new]
+
+
+Processing MoviesController#create (for 127.0.0.1 at 2011-01-31 14:43:51) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"ka+ot5pHpjAzEpT7/QM32ZSSlO5d3VpGxI35BYEqTb8=", "movie"=>{"price"=>"", "decription"=>"", "title"=>"The Blind Side", "certification"=>""}}
+  [4;35;1mMovie Create (0.3ms)[0m   [0mINSERT INTO "movies" ("decription", "price", "created_at", "title", "updated_at", "certification") VALUES('', '', '2011-01-31 14:43:51', 'The Blind Side', '2011-01-31 14:43:51', '')[0m
+Redirected to http://localhost:3000/movies/1
+Completed in 183ms (DB: 0) | 302 Found [http://localhost/movies]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2011-01-31 14:43:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.1ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/movies/1]
+
+
+Processing MoviesController#edit (for 127.0.0.1 at 2011-01-31 14:43:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMovie Load (0.1ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/edit
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/movies/1/edit]
+
+
+Processing MoviesController#update (for 127.0.0.1 at 2011-01-31 14:44:17) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ka+ot5pHpjAzEpT7/QM32ZSSlO5d3VpGxI35BYEqTb8=", "id"=>"1", "movie"=>{"price"=>"9.99", "decription"=>"American Football story", "title"=>"The Blind Side", "certification"=>"15"}}
+  [4;36;1mMovie Load (0.1ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Update (0.1ms)[0m   [0mUPDATE "movies" SET "updated_at" = '2011-01-31 14:44:17', "decription" = 'American Football story', "price" = '9.99', "certification" = '15' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/movies/1
+Completed in 91ms (DB: 0) | 302 Found [http://localhost/movies/1]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2011-01-31 14:44:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+Completed in 5ms (View: 2, DB: 0) | 200 OK [http://localhost/movies/1]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2011-01-31 14:44:20) [GET]
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Completed in 6ms (View: 3, DB: 0) | 200 OK [http://localhost/movies]

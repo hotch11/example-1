@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: Chunky Bacon butty
+  method: Toast bread, grill bacon, butter toast, add HP sauce
+  user_id:
+
+two:
+  title: Tuna Mayo Butty
+  method: Get bread, mix mayo with tuna, butter bread, put tuna on bread
+  user_id: 1
+
+three:
+  title: Pasta Bake
+  method: Cook chosen meat, add, sauce, add pasta, cook for 40 minutes
+  user_id: 2
